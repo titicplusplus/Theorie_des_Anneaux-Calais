@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{pgfmath}
+\usepackage{amsmath} % Pour des outils mathématiques avancés
+\usepackage{amsfonts}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=purple,
+    urlcolor=cyan,
+    pdftitle={Corrigés Mathématiques},
+}
+
+% --- Configuration des titres ---
+\titleformat{\section}{\bfseries\Large}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{1em}{}
+
+% --- Macros pour inclure les exercices ---
+\newcommand{\includesection}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\includeexercise}[1]{
+    \subsection*{Exercice #1}
+    \addcontentsline{toc}{subsection}{Exercice #1}
+    \input{#1}
+}
+
+\begin{document}
+
+% --- Page de garde ---
+\begin{titlepage}
+    \begin{center}
+        \vspace*{2cm}
+        {\Huge\bfseries Anneaux - Corps : Eléments de théorie des anneaux, correction \\[1cm]}
+        {\Large Année : \the\year \\[1cm]}
+        \textbf{Nom des Correcteurs :} \\[0.5cm]
+        Thibaud VINCENT \\[4cm]
+
+        \textit{L3 Mathématiques}
+    \end{center}
+\end{titlepage}
+\newpage
+
+% --- Page des progrès des exercices ---
+
+% Définir le pourcentage d'exercices réalisés
+\def\totalexercises{112}
+\def\completedexercises{2}
+
+\pgfmathsetmacro{\percentage}{\completedexercises/\totalexercises*100}
+\pgfmathsetmacro{\remainingpercentage}{100-\percentage}
+
+\section*{Progrès des exercices}
+
+
+% Affichage du cercle avec le pourcentage et deux couleurs (noir et gris)
+\begin{center}
+    \begin{tikzpicture}
+        % Portion de 60% en noir pour l'épaisseur du cercle
+        \draw[line width=20pt, black] (0:5cm) arc[start angle=0, end angle=\percentage*3.6, radius=5cm];
+        
+        % Portion de 40% en gris pour l'épaisseur du cercle
+        \draw[line width=20pt, gray] (\percentage*3.6:5cm) arc[start angle=\percentage*3.6, end angle=360, radius=5cm];
+
+        % Affichage du pourcentage au centre du cercle
+        \node at (0,0) {
+            \textbf{\huge \percentage\% - \completedexercises / \totalexercises }
+       };
+    \end{tikzpicture}
+\end{center}
+
+
+% Affichage du nombre d'exercices réalisés par chapitre
+
+\textbf{Progrès par chapitre}
+\begin{enumerate}
+    \item Structure d'anneau  \dotfill 2 / 16
+    \item Idéaux d'un anneaux \dotfill 0 / 18
+    \item Modules et Algèbres \dotfill 0 / 10
+    \item Algèbres de polynômes \dotfill 0 / 9    
+    \item Factorisation dans les domaines d'intégrité  \dotfill 0 / 29
+    \item Localisation   \dotfill 0 / 10
+    \item Séries formelles  \dotfill 0 / 7
+    \item Polynômes symétriques  \dotfill 0 / 13
+\end{enumerate}    
+
+
+\newpage
+
+% --- Sommaire ---
+\tableofcontents
+\newpage
+
+% --- Inclusion des exercices ---
+\foreach \chapter in {1} { % Parcours des chapitres
+    \section*{Chapitre \chapter}
+    \addcontentsline{toc}{section}{Chapitre \chapter}
+    \foreach \exercise in {1, 2} { % Parcours des exercices
+        \IfFileExists{Chapitre\chapter/Exercice-\chapter-\chapter.\exercise.tex}{%
+            \subsection*{Exercice \exercise}
+            \addcontentsline{toc}{subsection}{Exercice \exercise}
+            \input{Chapitre\chapter/Exercice-\chapter-\chapter.\exercise.tex}
+        }{}
+    }
+    
+    \newpage
+}
+
+\end{document}

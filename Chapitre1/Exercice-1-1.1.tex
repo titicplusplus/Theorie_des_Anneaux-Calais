@@ -1,0 +1,27 @@
+% Exercice 1.1
+
+Soit $G$ un groupe additif abélien, $G \neq \{0\}$
+On pose l'application:
+
+\[
+\begin{array}{rcl}
+    . : G \times G & \to & G \\
+    (x, y) & \mapsto & 0
+\end{array}
+\]
+
+\begin{enumerate}
+  \item $(G, +)$ est bien un groupe abélien (hypothèse)
+  \item $\forall (x, y, z) \in G^3,\ x.(yz) = x.0 = 0 = 0.z = (xy).z$
+  \item $\forall (x, y, z) \in G^3,\ x.(y + z) = 0 = 0 + 0 = x.y + x.z$ et $(x + y).z = 0 = 0 + 0 = x.z + y.z$
+\end{enumerate}
+
+Donc $(G, +, .)$ est un anneau.
+\newline
+
+$\forall (x, y) \in G^2, x.y = 0 = y.x \Rightarrow  G$ commutatif
+\newline
+
+Supposons qu'il existe $e$ un élément unitaire de $G$ alors
+
+$\exists x \in G \setminus \{0\}$ ($G \neq \{0\}$) $| e.x = 0 \neq x \Rightarrow e $ n'est pas un élement d'unité $\Longrightarrow$ $G$ n'est pas unitaire.
