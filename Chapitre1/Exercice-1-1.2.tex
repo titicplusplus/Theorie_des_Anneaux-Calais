@@ -37,7 +37,7 @@ On a (hypothèse):
 = \sum_{\substack{\forall j \in \{1, ..., s\}, 1 \leq i_j \leq n \\ i_1 + ... + i_s = n \\ 1 \leq l_1 \leq i_s, 1 \leq l_2 \leq i_s  \\ l_1 + l_2 = i_s}} \frac{n!}{i_1!...i_{s-1}!l_1!l_2!}a_1^{i_1}...a_{s-1}^{i_{s-1}}a_s^{l_1}a_{s+1}^{l_2}) \\
 = \sum_{\substack{\forall j \in \{1, ..., s\}, 1 \leq i_j \leq n\\ 1 \leq l_1 \leq i_s, 1 \leq l_2 \leq i_s  \\ i_1 + ... + i_{s-1} + l_1 + l_2 = n}} \frac{n!}{i_1!...i_{s-1}!l_1!l_2!}a_1^{i_1}...a_{s-1}^{i_{s-1}}a_s^{l_1}a_{s+1}^{l_2}) \\
 = \sum_{\substack{\forall j \in \{1, ..., s - 1\}, 1 \leq i_j \leq n\\ 1 \leq l_1 \leq n, 1 \leq l_2 \leq n  \\ i_1 + ... + i_{s-1} + l_1 + l_2 = n}} \frac{n!}{i_1!...i_{s-1}!l_1!l_2!}a_1^{i_1}...a_{s-1}^{i_{s-1}}a_s^{l_1}a_{s+1}^{l_2}) \\
-= [(i_1, i_2, ..., i_{s-1}, l_1, l_2) = (d_1, d_2, ..., d_{s+1}] \\
+= [(i_1, i_2, ..., i_{s-1}, l_1, l_2) = (d_1, d_2, ..., d_{s+1})] \\
 = \sum_{\substack{\forall j \in \{1, ..., s + 1\}, 1 \leq d_j \leq n \\ d_1 + ... + d_{s+1} = n}} \frac{n!}{d_1!...d_{s+1}!}a_1^{d_1}...a_{s+1}^{d+1}) \\
 = (a_1 + a_2 + ... + a_s + a_{s+1})^n
 \end{multline*}
