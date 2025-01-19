@@ -52,7 +52,7 @@
 
 % Définir le pourcentage d'exercices réalisés
 \def\totalexercises{112}
-\def\completedexercises{3}
+\def\completedexercises{4}
 
 \pgfmathsetmacro{\percentage}{\completedexercises/\totalexercises*100}
 \pgfmathsetmacro{\remainingpercentage}{100-\percentage}
@@ -81,7 +81,7 @@
 
 \textbf{Progrès par chapitre}
 \begin{enumerate}
-    \item Structure d'anneau  \dotfill 3 / 16
+    \item Structure d'anneau  \dotfill 4 / 16
     \item Idéaux d'un anneaux \dotfill 0 / 18
     \item Modules et Algèbres \dotfill 0 / 10
     \item Algèbres de polynômes \dotfill 0 / 9    
@@ -102,7 +102,7 @@
 \foreach \chapter in {1} { % Parcours des chapitres
     \section*{Chapitre \chapter}
     \addcontentsline{toc}{section}{Chapitre \chapter}
-    \foreach \exercise in {1, 2, 3} { % Parcours des exercices
+    \foreach \exercise in {1, 2, 3, 4} { % Parcours des exercices
         \IfFileExists{Chapitre\chapter/Exercice-\chapter-\chapter.\exercise.tex}{%
             \subsection*{Exercice \exercise}
             \addcontentsline{toc}{subsection}{Exercice \exercise}
